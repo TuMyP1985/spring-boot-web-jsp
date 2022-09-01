@@ -60,10 +60,11 @@ public class ExaminationController {
         for (int i = 0; i < 10; i++)
             if (checkBn) {
                 Exam e = examList.get(i);
-                e.setResult(Integer.parseInt(request.getParameter(String.valueOf(i))));
-                e.setError(e.getVal1()*e.getVal2()!=e.getResult());
-            } else
-                examList.add(new Exam(gerInt(), gerInt(), 0, false));
+                e.setResult(String.valueOf(Integer.parseInt(request.getParameter(String.valueOf(i)))));
+//                e.setError(e.getVal1()*e.getVal2()!=e.getResult());
+            }
+//        else
+//                examList.add(new Exam(gerInt(), gerInt(), 0, false));
 
         int countJob = (int) examList.stream().filter(n->!n.isError()).count();
 
